@@ -1,0 +1,6 @@
+<h1>Ajouter un participant: </h1>
+<%= form_for :participant do |f| %>
+  <%= f.label :name, "Le participant:  "%> 
+  <%= f.text_field :name %><br />
+  <%= f.submit "Ajouter un participant"%>
+<% end %>
