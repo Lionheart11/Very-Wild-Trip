@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creator: MyString
+  destination: MyString
+  budget: 1
+
+two:
+  creator: MyString
+  destination: MyString
+  budget: 1

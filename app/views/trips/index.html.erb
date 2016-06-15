@@ -1,0 +1,5 @@
+<h1>liste des Trips</h1>
+
+<% @trips.each do |trip| %>
+  <b><%= trip.creator %></b> a créé le trip pour <b><%=trip.destination %></b> qui coutera <%= trip.budget %> €<br>
+<% end %>

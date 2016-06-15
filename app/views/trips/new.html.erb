@@ -1,0 +1,8 @@
+<h1>Formulaire création d'un trip</h1>
+
+<%= form_for @trip, url: trips_path(@trip), method: :post do |f| %>
+  T'es qui ?: <%= f.text_field :creator %><br>
+  Destination : <%= f.text_field :destination %><br>
+  Budget estimé : <%= f.text_field :budget %><br>
+  <%= f.submit %>
+<% end %>
