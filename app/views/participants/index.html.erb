@@ -1,0 +1,7 @@
+<h1>Liste des participants</h1>
+
+<% @participants.each do |participant| %>
+<%= participant.name %>
+<%= button_to 'edit' %>
+
+<%end %>
