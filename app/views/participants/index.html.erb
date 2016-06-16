@@ -1,7 +1,8 @@
 <h1>Liste des participants</h1>
 
 <% @participants.each do |participant| %>
-<%= participant.name %>
-<%= button_to 'edit' %>
+  <%= participant.name %>
+  <%= button_to 'Modifier le nom du participant', edit_participant_path(participant.id), method: :get %>
+  <%= button_to 'Supprimer le participant', participant_path(participant.id), method: :delete %>
 
 <%end %>

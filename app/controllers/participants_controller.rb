@@ -2,10 +2,11 @@ class ParticipantsController < ApplicationController
   def new
     participant = Participant.new
   end
+  
   def create
-    @participant = Participant.new(participant_params)
+    @participant = Participant.new(participant_params[:id])
     if @participant.save
-    redirect_to participants_path, methode: :get
+    redirect_to participants_path, method: :get
     else
     render 'new'
     end
@@ -29,12 +30,14 @@ class ParticipantsController < ApplicationController
   end
 
   def destroy
-    
+    @participant = Participant.find(params[:id])
+    @participant.destroy
+    redirect_to participants_path
   end
 
   private
   def participant_params
-    params.require(:participant).permit(:name)
+    params.require(:participants).permit(:name, :trip_id, :hobbies_id)
   end
 
 end
