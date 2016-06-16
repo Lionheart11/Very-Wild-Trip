@@ -24,3 +24,7 @@ p5 = Participate.create(trip_id: paris.id, participant_id: alex.id)
 p6 = Participate.create(trip_id: tahiti.id, participant_id: dorian.id)
 p7 = Participate.create(trip_id: tahiti.id, participant_id: richard.id)
 
+football = Hobby.create(name: 'football')
+restaurant = Hobby.create(name: 'restaurant')
+apero = Hobby.create(name: 'apero')
+randonnée = Hobby.create(name: 'randonnée')
