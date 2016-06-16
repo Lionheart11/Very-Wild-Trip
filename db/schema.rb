@@ -11,22 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616132848) do
-
-  create_table "choose_hobbies", force: :cascade do |t|
-    t.integer  "hobby_id"
-    t.integer  "participate_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "choose_hobbies", ["hobby_id"], name: "index_choose_hobbies_on_hobby_id"
-  add_index "choose_hobbies", ["participate_id"], name: "index_choose_hobbies_on_participate_id"
+ActiveRecord::Schema.define(version: 20160616132114) do
 
   create_table "hobbies", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -35,15 +25,13 @@ ActiveRecord::Schema.define(version: 20160616132848) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "participates", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "trip_id"
-    t.integer  "participant_id"
+  create_table "participants_trips", id: false, force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "participant_id"
   end
 
-  add_index "participates", ["participant_id"], name: "index_participates_on_participant_id"
-  add_index "participates", ["trip_id"], name: "index_participates_on_trip_id"
+  add_index "participants_trips", ["participant_id"], name: "index_participants_trips_on_participant_id"
+  add_index "participants_trips", ["trip_id"], name: "index_participants_trips_on_trip_id"
 
   create_table "trips", force: :cascade do |t|
     t.string   "creator"

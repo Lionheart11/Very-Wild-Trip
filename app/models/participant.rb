@@ -1,3 +1,3 @@
 class Participant < ActiveRecord::Base
-  has_many :participates
+  has_and_belongs_to_many :trips
 end

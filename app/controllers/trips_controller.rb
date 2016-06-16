@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-
   def index
     @trips = Trip.all
   end
@@ -18,16 +17,24 @@ class TripsController < ApplicationController
   end
   
   def add_participant
-    p = Participant.where(name: params[:participant][:name])
-    if p.empty?
-      p = Participant.create(name: params[:participant][:name])
+    trip = Trip.find(params[:id])
+    participant = Participant.find_by(name: params[:participant][:name])
+    
+    if participant.nil?
+      participant = Participant.new
+      participant.name = params[:participant][:name]
     end
-    Participate.create(trip_id: params[:id], participant_id: p.id)
+
+    unless participant.trips.include? trip
+      participant.trips << trip 
+      end
+    participant.save
     redirect_to trip_path
   end
 
   def show
     @trip = Trip.find(params[:id])
+    @participants = @trip.participants 
 
     # liste des participants au trip
     # @participants = @trip.participates
@@ -37,14 +44,7 @@ class TripsController < ApplicationController
 
   def destroy 
     trip = trip.find(params[:id])
-    trip.destroy
     redirect_to trips_path, method: :get
   end 
-
-  private
-
-  def trip_params
-    params.require(:trip).permit(:creator, :destination, :budget)
-  end
 
 end

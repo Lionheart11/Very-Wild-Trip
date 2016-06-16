@@ -1,9 +1,8 @@
 class CreateChooseHobbies < ActiveRecord::Migration
   def change
-    create_table :choose_hobbies do |t|
-      t.references :hobby, index: true
-      t.references :participate, index: true
-      t.timestamps null: false
+    create_table :participants_trips, id: false do |t|
+      t.belongs_to :trip, index: true
+      t.belongs_to :participant, index: true
     end
   end
 end
