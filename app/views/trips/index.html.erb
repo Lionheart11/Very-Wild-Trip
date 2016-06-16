@@ -1,5 +1,11 @@
-<h1>liste des Trips</h1>
+<div class="collection">
+	<li class="collection-header"><h1>Liste des voyages organisés</h1></li>
+		<% @trips.each do |trip| %>	
+			<%= link_to trip_path(trip.id), class: "collection-item" do %>
+				<b><%= trip.creator %></b> a créé le trip pour <b><%=trip.destination %></b> qui coutera <%= trip.budget %>€
+			<% end %>
+		<% end %>
+</div>
 
-<% @trips.each do |trip| %>
-  <b><%= link_to trip.creator, trip_path(trip.id) %></b> a créé le trip pour <b><%=trip.destination %></b> qui coutera <%= trip.budget %> €<br>
-<% end %>
+
+    
