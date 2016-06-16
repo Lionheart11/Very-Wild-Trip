@@ -27,7 +27,7 @@ class TripsController < ApplicationController
 
     unless participant.trips.include? trip
       participant.trips << trip 
-      end
+    end
     participant.save
     redirect_to trip_path
   end
