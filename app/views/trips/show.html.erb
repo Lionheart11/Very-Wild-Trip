@@ -1,10 +1,14 @@
-<h1><%= @trip.creator %></h1> a proposé <br> 
+<div class="container">
+      <h1><%= @trip.creator %></h1> a proposé <br> 
 un trip à <%= @trip.destination %><br> 
 Budget estimé <%= @trip.budget %> €<br>
 
-<% @trip.participates.each do |participant| %>
-  <%= participant.participant.name %>
-<% end %>
+  <% @trip.participates.each do |participant| %>
+    <ul>
+      <li><%= participant.participant.name %></li>
+    </ul>
+  <% end %>
+</div>
   <!-- Modal Trigger -->
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Modal</a>
 
