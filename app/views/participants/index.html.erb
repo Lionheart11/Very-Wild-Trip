@@ -6,3 +6,7 @@
   <%= button_to 'Supprimer le participant', participant_path(participant.id), method: :delete %>
 
 <%end %>
+<% @participants.each do |participant| %>	
+			
+				<b><%= participant.name %></b> a créé le trip pour <b></b> qui coutera € </br>
+		<% end %>
