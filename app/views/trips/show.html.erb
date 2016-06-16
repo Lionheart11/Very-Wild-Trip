@@ -2,8 +2,8 @@
 un trip à <%= @trip.destination %><br> 
 Budget estimé <%= @trip.budget %> €<br>
 
-<% @participants.each do |participant| %>
-  <%= participant.name %>
+<% @trip.participates.each do |participant| %>
+  <%= participant.participant.name %>
 <% end %>
   <!-- Modal Trigger -->
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Modal</a>
@@ -11,11 +11,15 @@ Budget estimé <%= @trip.budget %> €<br>
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <%= form_for :participant, url: add_participant_path(@trip) do |f| %>
+        <%= f.label :name, "Nom, prénom ou pseudo"%> 
+        <%= f.text_field :name %><br />
+        <%= f.submit "Ajouter un participant"%>
+      <% end %>
     </div>
+
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Je suis un footer</a>
     </div>
   </div>
          

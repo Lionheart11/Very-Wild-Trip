@@ -22,7 +22,7 @@ class TripsController < ApplicationController
     if p.empty?
       p = Participant.create(name: params[:participant][:name])
     end
-    Link.create(trip_id: params[:trip_id], participant_id: p.id)
+    Participate.create(trip_id: params[:id], participant_id: p.id)
     redirect_to root_path
   end
 
@@ -30,10 +30,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
 
     # liste des participants au trip
-    @participants = []
-    @trip.participates.each do |p|
-      @participants << p.participant
-    end
+    # @participants = @trip.participates
 
     # @participant = Participant.new
   end
