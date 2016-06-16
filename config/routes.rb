@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'trips#index'
+  post '/trips/:id/participants/new' => 'trips#add_participant', as: :add_participant
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

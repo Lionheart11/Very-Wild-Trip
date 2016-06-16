@@ -1,4 +1,7 @@
+<h1><%= @trip.creator %></h1> a proposé <br> 
+un trip à <%= @trip.destination %><br> 
+Budget estimé <%= @trip.budget %> €<br>
 
-  <h1><%= @trip.creator %></h1> a proposé <br> 
-  un trip à <%= @trip.destination %><br> 
-  Budget estimé <%= @trip.budget %> €<br>
+<% @participants.each do |participant| %>
+  <%= participant.name %>
+<% end %>

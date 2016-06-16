@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616080633) do
+ActiveRecord::Schema.define(version: 20160616132848) do
+
+  create_table "choose_hobbies", force: :cascade do |t|
+    t.integer  "hobby_id"
+    t.integer  "participate_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "choose_hobbies", ["hobby_id"], name: "index_choose_hobbies_on_hobby_id"
+  add_index "choose_hobbies", ["participate_id"], name: "index_choose_hobbies_on_participate_id"
 
   create_table "hobbies", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,20 +29,28 @@ ActiveRecord::Schema.define(version: 20160616080633) do
     t.string   "name"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participates", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "trip_id"
+    t.integer  "participant_id"
+  end
+
+  add_index "participates", ["participant_id"], name: "index_participates_on_participant_id"
+  add_index "participates", ["trip_id"], name: "index_participates_on_trip_id"
+
   create_table "trips", force: :cascade do |t|
     t.string   "creator"
     t.string   "destination"
     t.integer  "budget"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "participants", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "trip_id"
-    t.integer  "hobbies_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

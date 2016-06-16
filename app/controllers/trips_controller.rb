@@ -16,9 +16,26 @@ class TripsController < ApplicationController
       render :new
     end
   end
+  
+  def add_participant
+    p = Participant.where(name: params[:participant][:name])
+    if p.empty?
+      p = Participant.create(name: params[:participant][:name])
+    end
+    Link.create(trip_id: params[:trip_id], participant_id: p.id)
+    redirect_to root_path
+  end
 
   def show
     @trip = Trip.find(params[:id])
+
+    # liste des participants au trip
+    @participants = []
+    @trip.participates.each do |p|
+      @participants << p.participant
+    end
+
+    # @participant = Participant.new
   end
 
   def destroy 
