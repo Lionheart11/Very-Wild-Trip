@@ -23,7 +23,7 @@ class TripsController < ApplicationController
       p = Participant.create(name: params[:participant][:name])
     end
     Participate.create(trip_id: params[:id], participant_id: p.id)
-    redirect_to root_path
+    redirect_to trip_path
   end
 
   def show

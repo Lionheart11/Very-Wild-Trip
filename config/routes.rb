@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'trips#index'
+  root 'home#index'
   post '/trips/:id/participants/new' => 'trips#add_participant', as: :add_participant
 
   # Example of regular route:
