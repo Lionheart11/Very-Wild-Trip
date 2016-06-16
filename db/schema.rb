@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20160616080633) do
     t.integer  "budget"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+
+  create_table "participants", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "trip_id"
+    t.integer  "hobbies_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
