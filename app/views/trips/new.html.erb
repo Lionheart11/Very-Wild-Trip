@@ -1,6 +1,6 @@
-<h1>Création d'un voyage</h1>
+<div class="container"> 
 
-<div class="row">    
+    <h1 class="center-align">Création d'un voyage</h1>
 	<%= form_for @trip, url: trips_path(@trip) do |f| %>
 	<div class="row">
         <div class="input-field col s12">
@@ -27,12 +27,12 @@
     
     <div class="row">
         <div class="input-field col s12">
-			<%= f.label "Budget estimé" %>
+			<%= f.label "Budget par personne estimé" %>
 			<%= f.text_field :budget %><br>
 		</div>
 	</div>
-			<%= f.submit "créer un voyage", class: "btn waves-effect waves-light" %>
-	<% end %>
+		<%= f.submit "créer un voyage", class: "btn waves-effect waves-light center-align" %>
+        <% end %>
 </div>
 
 
