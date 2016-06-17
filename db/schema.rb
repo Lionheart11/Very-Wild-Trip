@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617081000) do
+ActiveRecord::Schema.define(version: 20160617085317) do
 
   create_table "hobbies", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160617081000) do
   create_table "participants_trips", id: false, force: :cascade do |t|
     t.integer "trip_id"
     t.integer "participant_id"
+    t.string  "hobbies"
   end
 
   add_index "participants_trips", ["participant_id"], name: "index_participants_trips_on_participant_id"
