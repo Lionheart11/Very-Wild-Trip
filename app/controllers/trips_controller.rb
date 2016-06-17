@@ -59,4 +59,8 @@ class TripsController < ApplicationController
     params.require(:location).permit(:name)
   end
 
+  def trip_params
+    params.require(:trip).permit(:creator, :budget, :destination)
+  end
+
 end
