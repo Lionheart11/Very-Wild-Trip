@@ -2,8 +2,11 @@
 	<li class="collection-header"><h1>Liste des voyages organisés</h1></li>
 		<% @trips.each do |trip| %>	
 			<%= link_to trip_path(trip.id), class: "collection-item" do %>
-				<b><%= trip.creator %></b> a créé le trip pour <b><%=trip.destination %></b> qui coutera <%= trip.budget %>€
+				<b><%= trip.creator %></b> a créé le voyage pour <b><%=trip.destination %></b> qui coutera <%= trip.budget %>€ par personne
 			<% end %>
+		<% end %>
+		<%= link_to  new_trip_path , class: "center-align" do %>
+		<button class="center-align waves-effects waves-lights btn-large">Ajouter mon propre voyage</button>
 		<% end %>
 </div>
 
