@@ -17,8 +17,20 @@
       <%= f.label :name, "Nom, prénom ou pseudo"%> 
       <%= f.text_field :name %><br />
       <%= f.submit "Ajouter un participant"%>
+      <div class="input-field col s12">
+        <select multiple> 
+          <% @hobbies.each_with_index do |hobby,index| %>
+            <option value="<%= index+1 %>"><%= hobby.name %></option>
+          <% end %>
+        </select>
+        <label>Choisir ses hobbies</label>
+      </div>
     <% end %>
+
+
   </div>
+
+
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Je suis un footer de merde</a>
   </div>

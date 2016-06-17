@@ -17,6 +17,7 @@ class TripsController < ApplicationController
   end
   
   def add_participant
+    binding.pry
     trip = Trip.find(params[:id])
     participant = Participant.find_by(name: params[:participant][:name])
     
@@ -35,6 +36,12 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @participants = @trip.participants
+
+    @hobbies = Hobby.all
+    # @hobbies = []
+    # hobbies.each_with_index do |hobbie,index|
+    #   @hobbies << [hobbie.name, index+1]
+    # end
 
     @location = Location.find(params[:id])
     forecast = ForecastIO.forecast(@location.latitude, @location.longitude)
