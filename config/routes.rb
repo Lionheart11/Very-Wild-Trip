@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :trips
   resources :participants
   resources :hobbies
+  resources :locations
 
   # Example resource route with options:
   #   resources :products do

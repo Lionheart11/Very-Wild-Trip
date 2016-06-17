@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'forecast_io'
+
+gem 'geocoder'
+
 gem 'material_icons'
 
 gem 'pry'

@@ -34,7 +34,13 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @participants = @trip.participants 
+    @participants = @trip.participants
+
+    @location = Location.find(params[:id])
+    forecast = ForecastIO.forecast(@location.latitude, @location.longitude)
+    # binding.pry
+    @temperature = ((forecast.currently.temperature - 32) * 5 / 9).round(1)
+    @icon = forecast.currently.icon
 
     # liste des participants au trip
     # @participants = @trip.participates
@@ -46,5 +52,11 @@ class TripsController < ApplicationController
     trip = trip.find(params[:id])
     redirect_to trips_path, method: :get
   end 
+
+  private
+
+  def location_params
+    params.require(:location).permit(:name)
+  end
 
 end

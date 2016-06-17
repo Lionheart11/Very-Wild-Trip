@@ -8,6 +8,7 @@
     </ul>
   </div>
 </div>  
+
       
 <!-- Modal Structure -->
 <div id="modal1" class="modal modal-fixed-footer">
@@ -18,11 +19,24 @@
       <%= f.submit "Ajouter un participant"%>
     <% end %>
   </div>
-
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Je suis un footer de merde</a>
   </div>
 </div>
+
+
+<div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h1><%= @location.name.capitalize %></h1>
+
+      <h2>" Il fait <%= @temperature %> °C "</h2>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="fixed-action-btn" style="bottom: 45%; right: 24px;">
   <a class="btn-floating btn-large red">
@@ -33,7 +47,7 @@
 
 
 
-    <li><a class="modal-trigger btn-floating yellow darken-1"><i class="material-icons">wb_sunny</i></a></li>
+    <li><a class="modal-trigger btn-floating yellow darken-1" href="#modal3"><i class="material-icons">wb_sunny</i></a></li>
 
 
 
